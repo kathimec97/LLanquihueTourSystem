@@ -7,7 +7,7 @@ import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
 /**
  * la clase 'Empresa' representa a los ingresos de personas juridicas
  * especificamente proveedores/operadores de servicios
- *
+ * <p>
  * esta clase extiende mediante herencia a la clase contacto
  *
  * @author Katherine Avila
@@ -19,7 +19,8 @@ public class Empresa extends Contacto {
     private int capacidadMax; //asientos, habitaciones...
 
     /**
-     * constructor con los parametros que recibira al crear un nuevo objeto empresa
+     * constructor con los parametros que recibirá al crear un nuevo objeto empresa
+     *
      * @param id
      * @param numeroRut
      * @param razonSocial
@@ -35,19 +36,24 @@ public class Empresa extends Contacto {
      * @throws CorreoInvalidException
      * @throws TelefonoInvalidException
      */
-    public Empresa(int id, String numeroRut, String razonSocial, String rolComercial, String servicio,int capacidadMax,  String correo, String numeroTelefono, String calle, int numeroCasa, String comuna)
+    public Empresa(String id, String numeroRut, String razonSocial, String rolComercial,
+                   String servicio, String correo, String numeroTelefono, String calle, int numeroCasa, String comuna, int capacidadMax)
             throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException {
-
-        super(id, numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
+//valida que el id de la empresa tenga el formato correcto (Ej: 'EMP01')
+        if (id == null || !id.trim().matches("^EMP\\d+$")) {
+            throw new IllegalArgumentException("Error: El ID debe la Empresa debe comenzar con EMP (Ej: EMP01");
+        }
+        super(id.trim(), numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
 
         this.razonSocial = razonSocial;
         this.rolComercial = rolComercial;
         this.servicio = servicio;
-        this.capacidadMax = capacidadMax;
+        setCapacidadMax(capacidadMax);
     }
 
     /**
      * obtiene la razon social (nombre) de la empresa
+     *
      * @return
      */
     public String getRazonSocial() {
@@ -56,6 +62,7 @@ public class Empresa extends Contacto {
 
     /**
      * Modifica la razon social de la empresa
+     *
      * @param razonSocial
      */
     public void setRazonSocial(String razonSocial) {
@@ -64,6 +71,7 @@ public class Empresa extends Contacto {
 
     /**
      * obtiene el rol que desempeña la empresa ( es un operador local o un proveedor)
+     *
      * @return el tipo de rol que desempeña
      */
     public String getRolComercial() {
@@ -72,6 +80,7 @@ public class Empresa extends Contacto {
 
     /**
      * modifica el rol registrado
+     *
      * @param rolComercial modificado
      */
     public void setRolComercial(String rolComercial) {
@@ -80,6 +89,7 @@ public class Empresa extends Contacto {
 
     /**
      * obtiene el Servicio prestado por la empresa (transporte o alojamiento...)
+     *
      * @return el tipo de servicio que entrega
      */
     public String getServicio() {
@@ -88,6 +98,7 @@ public class Empresa extends Contacto {
 
     /**
      * modifica el servicio prestado por la empresa
+     *
      * @param servicio modificado
      */
     public void setServicio(String servicio) {
@@ -96,6 +107,7 @@ public class Empresa extends Contacto {
 
     /**
      * obtiene la capacidad maxima de habitaciones o asientos que tienen disponibles
+     *
      * @return capacidad de habitaciones o asientos
      */
     public int getCapacidadMax() {
@@ -104,23 +116,28 @@ public class Empresa extends Contacto {
 
     /**
      * modifica la capacidad maxima de habitaciones o asientos que tienen disponibles
+     *
      * @param capacidadMax modificada
      */
     public void setCapacidadMax(int capacidadMax) {
+        if (capacidadMax <= 0) {
+            throw new IllegalArgumentException("La capacidad Maxima no puede ser negativa");
+        }
         this.capacidadMax = capacidadMax;
     }
 
     /**
      * representacion en formato texto de los datos de la empresa
+     *
      * @return cadena de texto con los datos de la empresa
      */
     @Override
     public String toString() {
-        return  super.toString() + "\n " +
+        return super.toString() + "\n " +
                 " Razon Social: " + razonSocial + "\n " +
                 " Rol Comercial: " + rolComercial + "\n " +
                 " Servicio: " + servicio + "\n " +
-                " Capacidad Maxima: " + capacidadMax ;
+                " Capacidad Maxima: " + capacidadMax;
 
     }
 }

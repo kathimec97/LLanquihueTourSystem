@@ -4,6 +4,9 @@ import cl.duoc.llanquihuetoursystem.util.CorreoInvalidException;
 import cl.duoc.llanquihuetoursystem.util.RutInvalidException;
 import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+
 /**
  * el proposito de esta clase es agrupar las caracteristicas exclusivas de las
  * personas naturales, especificamente de los clientes de Llanquihue Tour.
@@ -14,7 +17,7 @@ public class Cliente extends Contacto {
     private String nombre;
     private String apellido;
     private String restriccionesAlimenticias;
-    private String fechaRegistro;
+    private LocalDate fechaRegistro;
 
 
     /**
@@ -34,10 +37,13 @@ public class Cliente extends Contacto {
      * @throws CorreoInvalidException
      * @throws TelefonoInvalidException
      */
-    public Cliente(int id, String numeroRut, String nombre, String apellido, String correo, String numeroTelefono, String calle, int numeroCasa, String comuna, String restriccionesAlimenticias, String fechaRegistro)
-            throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException {
-
-        super(id, numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
+    public Cliente(String id, String numeroRut, String nombre, String apellido, String correo, String numeroTelefono, String calle, int numeroCasa, String comuna, String restriccionesAlimenticias, LocalDate fechaRegistro)
+            throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException, DateTimeException {
+//verifica que el ID tenga el formato correcto (Ej: 'C01')
+        if(id== null || !id.trim().matches("^C\\d+$")) {
+    throw new IllegalArgumentException(("Error: El ID del cliente debe comenzar con C seguido de numeros(Ej: C01)"));
+}
+        super(id.trim(), numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
 
         this.nombre = nombre;
         this.apellido = apellido;
@@ -99,7 +105,7 @@ public class Cliente extends Contacto {
      * obtiene la fecha de registro del cliente
      * @return la fecha de registro del cliente
      */
-    public String getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
@@ -107,7 +113,7 @@ public class Cliente extends Contacto {
      * modifica la fecha de registro
      * @param fechaRegistro nueva del cliente
      */
-    public void setFechaRegistro(String fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 

@@ -1,5 +1,9 @@
 package cl.duoc.llanquihuetoursystem.model;
 
+import cl.duoc.llanquihuetoursystem.component.Correo;
+import cl.duoc.llanquihuetoursystem.component.Direccion;
+import cl.duoc.llanquihuetoursystem.component.Rut;
+import cl.duoc.llanquihuetoursystem.component.Telefono;
 import cl.duoc.llanquihuetoursystem.util.CorreoInvalidException;
 import cl.duoc.llanquihuetoursystem.util.RutInvalidException;
 import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
@@ -18,7 +22,7 @@ import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
  * @author Katherine Avila
  */
 public class Contacto {
-    private int id;
+    private final String id;//final para asegurar que no se pueda cambiar
     private Rut rut;
     private Correo correo;
     private Telefono telefono;
@@ -38,10 +42,17 @@ public class Contacto {
      * @throws RutInvalidException
      * @throws TelefonoInvalidException
      */
-    public Contacto(int id, String numeroRut,String correo, String numeroTelefono, String calle, int numeroCasa, String comuna) throws RutInvalidException, TelefonoInvalidException, CorreoInvalidException {
-        this.id = id;
+    public Contacto(String id, String numeroRut,String correo, String numeroTelefono, String calle, int numeroCasa, String comuna) throws RutInvalidException, TelefonoInvalidException, CorreoInvalidException {
+        //verifica que el ID no esté vacío ni que tenga espacios. Además válida el formato general: letras mayúsculas y números
+        if(id == null|| id.trim().isEmpty()){
+            throw new IllegalArgumentException("Error: el ID no puede estar vacío.");
+        }
+        if(!id.trim().matches("^[A-Z]+\\d+$")) {
+            throw new IllegalArgumentException("Error: el ID debe tener letras mayusculas seguidas de números. ");
+        }
 
 // Inicializacion de los componentes
+        this.id = id.trim();
         this.rut = new Rut(numeroRut);
         this.correo = new Correo(correo);
         this.telefono = new Telefono(numeroTelefono);
@@ -53,18 +64,10 @@ public class Contacto {
      * obtiene un digito identificador correspondiente a un nuevo registro
      * @return el digito asignado al registro
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    /**
-     * modifica el ID
-     * (si bien se encuentra la opcion, el ID no esta destinado a modificarse)
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
 
     /**
      * obtiene el numero de rut del nuevo contacto
