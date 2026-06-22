@@ -1,0 +1,6 @@
+E01,16123456-7,Jorge,Toro,jorge.toro@empresa.com,921112222,Av. Vicente Pérez Rosales, 450,Llanquihue,Chofer,550000,si
+E02,17234567-8,Patricia,Vera,patricia.vera@empresa.com,932223333,Los Carrera, 120,Osorno,Recepcionista,420000,no
+E03,15345678-9,Ricardo,Tapia,ricardo.tapia@empresa.com,943334444,Imperial, 780,Puerto Varas,Guía Turístico,600000,si
+E04,18456789-0,Sonia,Lagos,sonia.lagos@empresa.com,954445555,Benavente, 230,Puerto Montt,Administrativo,480000,no
+E05,14567890-K,Manuel,Castro,manuel.castro@empresa.com,965556666,Manuel Antonio Matta, 890,Llanquihue,Chofer,550000,si
+

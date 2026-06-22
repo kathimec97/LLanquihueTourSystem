@@ -1,0 +1,5 @@
+C01,15342123-4,Juan,Pérez,juan.perez@email.com,911112222,Los Alerces, 432,Llanquihue,ninguna,12-01-2025
+C02,16453234-5,María,González,maria.g@email.com,922223333,O'Higgins, 890,Frutillar,vegetariano,22-02-2025
+C03,17564345-6,Carlos,Muñoz,c.munoz@email.com,933334444,Chorrillos, 125,Ancud,celíaco,05-03-2025
+C04,18675456-7,Ana,Silva,ana.silva@email.com,944445555,Bernardo O'Higgins, 45,Llanquihue,vegano,19-03-2025
+C05,14786567-8,Pedro,Rojas,projas@email.com,955556666,Mackenna, 1200,Osorno,intolerante a la lactosa,02-04-2025

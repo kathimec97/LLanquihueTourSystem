@@ -5,7 +5,7 @@ import cl.duoc.llanquihuetoursystem.util.RutInvalidException;
 import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
 
 /**
- * clase 'Empleado' almacena los datos de los empleados de LLanquihue Tour
+ * Clase 'Empleado' almacena los datos de los empleados de LLanquihue Tour
  * adicionalmente extiende los atributos de la clase 'contacto' mediante herencia
  * @author Katherine Avila
  */
@@ -36,17 +36,16 @@ public class Empleado extends Contacto {
      * @throws CorreoInvalidException
      * @throws TelefonoInvalidException
      */
-    public Empleado(String nombre, String apellido, String cargo, int sueldo, boolean licenciaConduccion, int id, String numeroRut, String correo, String numeroTelefono, String calle, int numeroCasa, String comuna) throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException
-    {
-        super(id, numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
+    public Empleado(String id, String numeroRut, String nombre, String apellido, String correo, String numeroTelefono, String calle, int numeroCasa, String comuna, String cargo, int sueldo, boolean licenciaConduccion) throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException
+    {//Verifica qe el ID de Empleado tenga el formato correcto (Ej: 'E01')
+        if(id == null || !id.trim().matches("^E\\d+$")){
+            throw new IllegalArgumentException("Error: el ID del Empleado debe comenzar con E seguido de números(Ej: E01)");
+        }
+        super(id.trim(), numeroRut, correo, numeroTelefono, calle, numeroCasa, comuna);
         this.nombre= nombre;
         this.apellido = apellido;
         this.cargo = cargo;
-
-        if(sueldo <= 0){
-            throw new IllegalArgumentException("el campo sueldo debe contener numeros positivos");
-        }
-        this.sueldo = sueldo;
+        setSueldo(sueldo);
         this.licenciaConduccion = licenciaConduccion;
 
     }
@@ -112,6 +111,9 @@ public class Empleado extends Contacto {
      * @param sueldo del empleado
      */
     public void setSueldo(int sueldo) {
+        if(sueldo <= 0){
+            throw new IllegalArgumentException("el campo sueldo debe contener numeros positivos");
+        }
         this.sueldo = sueldo;
     }
 
@@ -143,7 +145,7 @@ public class Empleado extends Contacto {
                 " Apellido: " + apellido + "\n" +
                 " Cargo: " + cargo + "\n" +
                 " Sueldo: " + sueldo + "\n" +
-                " ¿Posee licencia de Conducir?: " + licenciaConduccion
-                ;
+                " ¿Posee licencia de Conducir?: " + (this.licenciaConduccion ? "sí" : "No");
+
     }
 }

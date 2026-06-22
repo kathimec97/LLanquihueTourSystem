@@ -1,4 +1,4 @@
-package cl.duoc.llanquihuetoursystem.model;
+package cl.duoc.llanquihuetoursystem.component;
 
 import cl.duoc.llanquihuetoursystem.util.CorreoInvalidException;
 

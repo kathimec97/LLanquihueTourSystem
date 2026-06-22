@@ -1,0 +1,5 @@
+EMP01,76123456-7,Transportes Andes SpA,proveedor,transporte,contacto@transandes.cl,987654321,Av. Vicente Pérez Rosales, 1230,Llanquihue,45
+EMP02,77987654-3,Hotel Del Valle Ltda,operador local,alojamiento,reservas@delvalle.cl,912345678,San Martín, 450,Castro,120
+EMP03,76543210-K,Turismo Aventura Quillón,operador local,entretenimiento,info@turismoquillon.cl,955566677,Walker Martínez, 789,Puerto Varas,30
+EMP04,88333222-1,Banquetería Sabores SpA,proveedor,alimentación,eventos@sabores.cl,944455566,Eleuterio Ramírez, 321,Osorno,200
+EMP05,76999888-5,EcoTours Patagonia,operador local,guiado,contacto@ecotourspatagonia.cl,933322211,Angelmó, 654,Puerto Montt,15
