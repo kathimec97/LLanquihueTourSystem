@@ -1,5 +1,9 @@
 package cl.duoc.llanquihuetoursystem.model;
 
+/**
+ * Clase que representa las diferentes excursiones culturales ofrecidas por la agencia
+ * @author Katherine Avila
+ */
 public class ExcursionCultural extends ServicioTuristico {
     private String lugarHistorico;
 
@@ -18,7 +22,8 @@ public class ExcursionCultural extends ServicioTuristico {
 
     @Override
     public String toString() {
-        return "Excursión Cultural:" + "\n" +
+        return "Excursión Cultural:" + "\n"+
+                super.toString() + "\n" +
                 "Lugar Histórico: " + lugarHistorico;
     }
 }

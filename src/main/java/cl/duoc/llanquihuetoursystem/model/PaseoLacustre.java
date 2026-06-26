@@ -1,5 +1,9 @@
 package cl.duoc.llanquihuetoursystem.model;
 
+/**
+ * Clase que representa los diferentes Paseos Lacustres ofrecidos por la agencia
+ * @author Katherine Avila
+ */
 public class PaseoLacustre extends ServicioTuristico{
     private String tipoEmbarcacion;
 
@@ -18,7 +22,8 @@ public class PaseoLacustre extends ServicioTuristico{
 
     @Override
     public String toString() {
-        return "Paseo lacustre: " + "\n" +
-                "Tipo de embarcación='" + tipoEmbarcacion;
+        return "Paseo lacustre: " + "\n"
+                + super.toString() + "\n" +
+                "Tipo de embarcación: " + tipoEmbarcacion;
     }
 }

@@ -1,5 +1,9 @@
 package cl.duoc.llanquihuetoursystem.model;
 
+/**
+ * superclase que representa los diferentes servicios turísticos ofrecidos por la agencia
+ * @author Katherine Avila
+ */
 public class ServicioTuristico {
     private String nombre;
     private double duracionHoras;
@@ -27,7 +31,7 @@ public class ServicioTuristico {
 
     @Override
     public String toString() {
-        return "Servicio Turistico: " + "\n" +
+        return
                 "Nombre: " + nombre + "\n" +
                 "Duración: " + duracionHoras;
     }

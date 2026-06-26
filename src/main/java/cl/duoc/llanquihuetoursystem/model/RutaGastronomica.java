@@ -1,5 +1,8 @@
 package cl.duoc.llanquihuetoursystem.model;
 
+/**Clase que representa las diferentes rutas gastronómicas ofrecidas por la Agencia
+ * @author Katherine Avila
+ */
 public class RutaGastronomica extends ServicioTuristico {
     private int numeroDeParadas;
 
@@ -20,6 +23,7 @@ public class RutaGastronomica extends ServicioTuristico {
     @Override
     public String toString() {
         return "Ruta Gastronomica: " + "\n" +
+                super.toString() + "\n" +
                 "Numero de paradas: " + numeroDeParadas ;
     }
 }
