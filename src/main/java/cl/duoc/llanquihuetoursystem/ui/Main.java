@@ -1,16 +1,12 @@
-package cl.duoc.llanquihuetoursystem.app;
+package cl.duoc.llanquihuetoursystem.ui;
 
 import cl.duoc.llanquihuetoursystem.component.Rut;
-import cl.duoc.llanquihuetoursystem.datamanager.RegistroAgencia;
-import cl.duoc.llanquihuetoursystem.model.Cliente;
+import cl.duoc.llanquihuetoursystem.data.RegistroAgencia;
 import cl.duoc.llanquihuetoursystem.model.Empleado;
-import cl.duoc.llanquihuetoursystem.model.Empresa;
 import cl.duoc.llanquihuetoursystem.util.CorreoInvalidException;
 import cl.duoc.llanquihuetoursystem.util.RutInvalidException;
 import cl.duoc.llanquihuetoursystem.util.TelefonoInvalidException;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 public class Main {
     public Main() throws RutInvalidException, CorreoInvalidException, TelefonoInvalidException {
     }
@@ -54,7 +50,7 @@ public class Main {
         System.out.println("--- Probando Búsqueda por RUT ---");
         try {
 
-            Rut rutClienteValido = new Rut("15876543-3");
+            Rut rutClienteValido = new Rut("14786567-8");
             Rut rutInexistente = new Rut("99999999-9");
 
             System.out.println("Buscando RUT existente (Cliente):");
@@ -85,7 +81,7 @@ public class Main {
         //prueba de ID
 
         try {
-            Empleado empleadoTest = new Empleado("E123", "55678987-3", "camilo", "estrada", "camilo@estradagmail.com", "934928079", "lanalhue", 1280, "chillan", "secretario", 650000, false);
+            Empleado empleadoTest = new Empleado("123", "55678987-3", "camilo", "estrada", "camilo@estradagmail.com", "934928079", "lanalhue", 1280, "chillan", "secretario", 650000, false);
 
             agencia.getEmpleadosList().add(empleadoTest);
             System.out.println("Empleado agregado exitosamente");
