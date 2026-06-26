@@ -1,4 +1,4 @@
-package cl.duoc.llanquihuetoursystem.datamanager;
+package cl.duoc.llanquihuetoursystem.data;
 
 import cl.duoc.llanquihuetoursystem.component.Rut;
 import cl.duoc.llanquihuetoursystem.model.Cliente;
